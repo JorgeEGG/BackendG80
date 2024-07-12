@@ -43,3 +43,33 @@ exports.buscarJugador = async (req, res) => {
     }
 }
 
+exports.modificarJugador = async (req, res) => {
+    try {
+        const jugador = await Jugador.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        if (!jugador) {
+            return res.status(404).send('Jugador no encontrado')
+        } else {
+            res.json(jugador)
+        }
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).send('Hubo un error al consultar el jugador')
+    }
+}
+
+exports.eliminarJugador = async (req, res) => {
+    try {
+        let jugadores = await Jugador.findById(req.params.id)
+        if (!jugadores) {
+            res.status(404).send('Jugador no encontrado')
+        } else {
+            await Jugador.findOneAndDelete({ _id: req.params.id })
+            res.json({ msg: "El jugador ha sido eliminado" })
+        }
+    } catch {
+        console.log(error)
+        res.status(500).send('Hubo un error al consultar el jugador')
+    }
+}
+

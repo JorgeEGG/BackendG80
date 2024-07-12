@@ -6,9 +6,9 @@ const jugadorController = require('../controllers/jugadorContoller')
 router.post('/', jugadorController.agregarJugadores)
 router.get('/', jugadorController.mostrarJugadores)
 router.get('/:id', jugadorController.buscarJugador)
-//router.put('/:id', clienteController.actualizarClientes)
-/* router.patch('/:id', clienteController.modificarClientes)
-router.delete('/:id', clienteController.eliminarClientes)
- */
+//router.put('/:id', jugadorController.actualizarJugador)
+router.patch('/:id', jugadorController.modificarJugador)
+router.delete('/:id', jugadorController.eliminarJugador)
+
 
 module.exports = router
