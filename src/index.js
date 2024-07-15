@@ -17,4 +17,4 @@ app.get('/', (req, res) => {
     res.send('Bienvenido, estamos desde el navegador') // o console.log()
 })
 
-app.listen(port, () => console.log('El servidor está conectado con el puerto', port))
+app.listen(port, () => console.log('El servidor está conectado al puerto', port))
